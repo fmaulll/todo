@@ -13,10 +13,10 @@ func main() {
 	router := gin.Default()
 	models.ConnectDatabase()
 
-	router.Use(cors.New(cors.Config{
-		AllowOrigins: []string{"*"},
-		AllowMethods: []string{"GET", "POST", "PATCH", "DELETE"},
-	}))
+	config := cors.DefaultConfig()
+	config.AllowOrigins = []string{"https://todo-production-dd3d.up.railway.app"}
+
+	router.Use(cors.New(config))
 
 	router.GET("/api/todos", controllers.Index)
 	router.POST("/api/todos", controllers.Create)
