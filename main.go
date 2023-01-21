@@ -17,5 +17,5 @@ func main() {
 	router.PATCH("/api/todos/:id", controllers.Update)
 	router.DELETE("/api/todos", controllers.Delete)
 
-	router.Run(os.Getenv("PORT"))
+	router.Run(":" + os.Getenv("PORT"))
 }
