@@ -1,6 +1,8 @@
 package main
 
 import (
+	"os"
+
 	"github.com/fmaulll/todolist/controllers"
 	"github.com/fmaulll/todolist/models"
 	"github.com/gin-gonic/gin"
@@ -15,5 +17,5 @@ func main() {
 	router.PATCH("/api/todos/:id", controllers.Update)
 	router.DELETE("/api/todos", controllers.Delete)
 
-	router.Run()
+	router.Run(os.Getenv("PORT"))
 }
