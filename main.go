@@ -14,10 +14,8 @@ func main() {
 	models.ConnectDatabase()
 
 	router.Use(cors.New(cors.Config{
-		AllowOrigins:  []string{"*"},
-		AllowMethods:  []string{"GET", "POST", "PATCH", "DELETE"},
-		AllowHeaders:  []string{"Origin"},
-		ExposeHeaders: []string{"Content-Length"},
+		AllowOrigins: []string{"*"},
+		AllowMethods: []string{"GET", "POST", "PATCH", "DELETE"},
 	}))
 
 	router.GET("/api/todos", controllers.Index)
